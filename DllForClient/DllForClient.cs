@@ -19,6 +19,16 @@ namespace DllForClient
            return Math.PI * Math.Pow(r, 2);
         }
 
+        public static bool CheckTrangle(double firstKat,double secKat, double hypotenuse)
+        {
+
+            if (Math.Pow(hypotenuse, 2) == Math.Pow(firstKat, 2) + Math.Pow(secKat, 2))
+                return true;
+            else
+                return false;
+        }
+
+
         public static double AnySquare()
         {
             Console.Write("Input count side(If your figure haven`t sides input 0): ");
