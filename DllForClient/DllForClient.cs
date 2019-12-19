@@ -1,11 +1,4 @@
-﻿//Напишите библиотеку для поставки внешним клиентам, которая умеет вычислять площадь круга по 
-//радиусу и треугольника по трем сторонам.Дополнительно к работоспособности оценим:
-//Юнит-тесты
-//Легкость добавления других фигур
-//Вычисление площади фигуры без знания типа фигуры
-//Проверку на то, является ли треугольник прямоугольным
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,5 +19,54 @@ namespace DllForClient
            return Math.PI * Math.Pow(r, 2);
         }
 
+        public static double AnySquare()
+        {
+            Console.Write("Input count side: ");
+            double countSide = Convert.ToDouble(Console.ReadLine());
+            double s ,a, b, c, d;
+            if (countSide == 3)
+            {
+                Console.Write("Input first side a:\t");
+                a = Convert.ToDouble(Console.ReadLine());
+                Console.Write("Inout second side b:\t");
+                b = Convert.ToDouble(Console.ReadLine());
+                Console.Write("Input third side c:\t");
+                c = Convert.ToDouble(Console.ReadLine());
+
+                Console.WriteLine("Your figure is Triangle");
+                double p = (a + b + c) / 2;
+                s = Math.Sqrt(p * (p - a) * (p - b) * (p - c));
+                return s;
+            }
+            else if (countSide == 4)
+            {
+                Console.Write("Input first side a:\t");
+                a = Convert.ToDouble(Console.ReadLine());
+                Console.Write("Inout second side b:\t");
+                b = Convert.ToDouble(Console.ReadLine());
+                Console.Write("Input third side c:\t");
+                c = Convert.ToDouble(Console.ReadLine());
+                Console.Write("Input fourth side d:\t");
+                d = Convert.ToDouble(Console.ReadLine());
+
+
+                if (a == b && b == c && c == d)
+                {
+                    Console.WriteLine("Your figure is Square");
+                    s = a * b;
+                    return s;
+                }
+                else if (a == b && c == d)
+                {
+                    Console.WriteLine("Your figure is Rectangle");
+                    s = a * b;
+                    return s;
+                }
+                else return 0;
+
+            }
+            else
+                return 0;
+        }
     }
 }
