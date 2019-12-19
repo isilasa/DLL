@@ -21,7 +21,7 @@ namespace DllForClient
 
         public static double AnySquare()
         {
-            Console.Write("Input count side: ");
+            Console.Write("Input count side(If your figure haven`t sides input 0): ");
             double countSide = Convert.ToDouble(Console.ReadLine());
             double s ,a, b, c, d;
             if (countSide == 3)
@@ -64,6 +64,14 @@ namespace DllForClient
                 }
                 else return 0;
 
+            }
+            else if (countSide == 0)
+            {
+                Console.WriteLine("Your figure is Circle");
+                Console.Write("Input radius r:\t");
+                double r = Convert.ToDouble(Console.ReadLine());
+                s =  Math.PI * Math.Pow(r, 2);
+                return s;
             }
             else
                 return 0;
